@@ -1,0 +1,87 @@
+#tophat use 
+
+
+#dna file location
+./gorilla/ftp.ensembl.org/pub/release-87/fasta/gorilla_gorilla/dna ./chimp/ftp.ensembl.org/pub/release-87/fasta/pan_troglodytes/dna ./mouse/ftp.ensembl.org/pub/release-87/fasta/mus_musculus/dna ./orangutan/ftp.ensembl.org/pub/release-87/fasta/pongo_abelii/dna ./opossum/ftp.ensembl.org/pub/release-87/fasta/monodelphis_domestica/dna ./rhesus/ftp.ensembl.org/pub/release-87/fasta/macaca_mulatta/dna ./platypus/ftp.ensembl.org/pub/release-87/fasta/ornithorhynchus_anatinus/dna ./chicken/ftp.ensembl.org/pub/release-87/fasta/gallus_gallus/dna
+
+#gtf file location
+../gtf/Pan_troglodytes.CHIMP2.1.4.87.gtf ../gtf/Monodelphis_domestica.BROADO5.87.gtf ../gtf/Mus_musculus.GRCm38.87.gtf ../gtf/Ornithorhynchus_anatinus.OANA5.87.gtf ../gtf/Gorilla_gorilla.gorGor3.1.87.gtf ../gtf/Pongo_abelii.PPYG2.87.gtf ../gtf/Macaca_mulatta.Mmul_8.0.1.87.gtf ../gtf/Gallus_gallus.Gallus_gallus-5.0.87.gtf ../gtf/Homo_sapiens.GRCh38.87.gtf 
+
+#!/bin/bash
+export PATH=$PATH:/share/public2/data/others/dengac2/App/bowtie2-2.3.0:/share/public2/data/others/dengac2/App/tophat-2.1.1.Linux_x86_64
+mkdir -p /share/public2/data/others/dengac2/tophat_output/chimp
+tophat --num-threads 8 -G /share/public2/data/others/dengac2/gtf/Pan_troglodytes.CHIMP2.1.4.87.gtf -o /share/public2/data/others/dengac2/tophat_output/chimp /share/public2/data/others/dengac2/Genome/chimp/ftp.ensembl.org/pub/release-87/fasta/pan_troglodytes/dna/Pan_troglodytes.CHIMP2.1.4.dna.chromosome.merge /share/public2/data/others/dengac2/Data/David/SRR306811.fastq /share/public2/data/others/dengac2/Data/David/SRR306817.fastq /share/public2/data/others/dengac2/Data/David/SRR306818.fastq /share/public2/data/others/dengac2/Data/David/SRR306819.fastq /share/public2/data/others/dengac2/Data/David/SRR306820.fastq /share/public2/data/others/dengac2/Data/David/SRR306821.fastq /share/public2/data/others/dengac2/Data/David/SRR306822.fastq /share/public2/data/others/dengac2/Data/David/SRR306823.fastq /share/public2/data/others/dengac2/Data/David/SRR306824.fastq /share/public2/data/others/dengac2/Data/David/SRR306825.fastq
+
+
+#!/bin/bash
+export PATH=$PATH:/share/public2/data/others/dengac2/App/bowtie2-2.3.0:/share/public2/data/others/dengac2/App/tophat-2.1.1.Linux_x86_64
+s='rhesus' #should be the same as the Genome folder name
+g='Macaca_mulatta.Mmul_8.0.1.87'
+l='rhesus/ftp.ensembl.org/pub/release-87/fasta/macaca_mulatta/dna'
+n='Macaca_mulatta.Mmul_8.0.1.dna.chromosome.merge'
+
+mkdir -p /share/public2/data/others/dengac2/tophat_output/$s
+
+tophat --num-threads 8 -G /share/public2/data/others/dengac2/gtf/$g.gtf -o /share/public2/data/others/dengac2/tophat_output/$s /share/public2/data/others/dengac2/Genome/$l/$n /share/public2/data/others/dengac2/Data/David/SRR306777.fastq /share/public2/data/others/dengac2/Data/David/SRR306778.fastq /share/public2/data/others/dengac2/Data/David/SRR306780.fastq /share/public2/data/others/dengac2/Data/David/SRR306781.fastq /share/public2/data/others/dengac2/Data/David/SRR306782.fastq /share/public2/data/others/dengac2/Data/David/SRR306783.fastq /share/public2/data/others/dengac2/Data/David/SRR306784.fastq /share/public2/data/others/dengac2/Data/David/SRR306785.fastq /share/public2/data/others/dengac2/Data/David/SRR306786.fastq /share/public2/data/others/dengac2/Data/David/SRR306787.fastq /share/public2/data/others/dengac2/Data/David/SRR306789.fastq /share/public2/data/others/dengac2/Data/David/SRR306790.fastq
+
+#!/bin/bash
+export PATH=$PATH:/share/public2/data/others/dengac2/App/bowtie2-2.3.0:/share/public2/data/others/dengac2/App/tophat-2.1.1.Linux_x86_64
+
+s='gorilla' #should be the same as the Genome folder name
+g='Gorilla_gorilla.gorGor3.1.87'
+l='gorilla/ftp.ensembl.org/pub/release-87/fasta/gorilla_gorilla/dna'
+n='Gorilla_gorilla.gorGor3.1.dna.chromosome.merge'
+
+mkdir -p /share/public2/data/others/dengac2/tophat_output/$s
+
+tophat --num-threads 8 -G /share/public2/data/others/dengac2/gtf/$g.gtf -o /share/public2/data/others/dengac2/tophat_output/$s /share/public2/data/others/dengac2/Genome/$l/$n /share/public2/data/others/dengac2/Data/David/SRR306800.fastq,/share/public2/data/others/dengac2/Data/David/SRR306802.fastq,/share/public2/data/others/dengac2/Data/David/SRR306803.fastq,/share/public2/data/others/dengac2/Data/David/SRR306804.fastq,/share/public2/data/others/dengac2/Data/David/SRR306805.fastq,/share/public2/data/others/dengac2/Data/David/SRR306806.fastq,/share/public2/data/others/dengac2/Data/David/SRR306807.fastq,/share/public2/data/others/dengac2/Data/David/SRR306808.fastq,/share/public2/data/others/dengac2/Data/David/SRR306809.fastq,/share/public2/data/others/dengac2/Data/David/SRR306810.fastq 
+
+
+opossum
+#----------------
+
+#!/bin/bash
+export PATH=$PATH:/share/public2/data/others/dengac2/App/bowtie2-2.3.0:/share/public2/data/others/dengac2/App/tophat-2.1.1.Linux_x86_64
+
+s='opossum' #should be the same as the Genome folder name
+g='Monodelphis_domestica.BROADO5.87'
+l='opossum/ftp.ensembl.org/pub/release-87/fasta/monodelphis_domestica/dna'
+n='Monodelphis_domestica.BROADO5.dna.merge'
+
+mkdir -p /share/public2/data/others/dengac2/tophat_output/$s
+
+tophat --num-threads 8 -G /share/public2/data/others/dengac2/gtf/$g.gtf -o /share/public2/data/others/dengac2/tophat_output/$s /share/public2/data/others/dengac2/Genome/$l/$n /share/public2/data/others/dengac2/Data/David/SRR306742.fastq /share/public2/data/others/dengac2/Data/David/SRR306744.fastq /share/public2/data/others/dengac2/Data/David/SRR306745.fastq /share/public2/data/others/dengac2/Data/David/SRR306746.fastq /share/public2/data/others/dengac2/Data/David/SRR306748.fastq /share/public2/data/others/dengac2/Data/David/SRR306750.fastq /share/public2/data/others/dengac2/Data/David/SRR306751.fastq /share/public2/data/others/dengac2/Data/David/SRR306752.fastq /share/public2/data/others/dengac2/Data/David/SRR306753.fastq /share/public2/data/others/dengac2/Data/David/SRR306754.fastq /share/public2/data/others/dengac2/Data/David/SRR306755.fastq /share/public2/data/others/dengac2/Data/David/SRR306756.fastq
+
+orangutan
+#---------------
+#!/bin/bash
+export PATH=$PATH:/share/public2/data/others/dengac2/App/bowtie2-2.3.0:/share/public2/data/others/dengac2/App/tophat-2.1.1.Linux_x86_64
+
+s='orangutan' #should be the same as the Genome folder name
+g='Pongo_abelii.PPYG2.87'
+l='orangutan/ftp.ensembl.org/pub/release-87/fasta/pongo_abelii/dna'
+n='Pongo_abelii.PPYG2.dna.chromosome.merge'
+
+mkdir -p /share/public2/data/others/dengac2/tophat_output/$s
+
+tophat --num-threads 8 -G /share/public2/data/others/dengac2/gtf/$g.gtf -o /share/public2/data/others/dengac2/tophat_output/$s /share/public2/data/others/dengac2/Genome/$l/$n /share/public2/data/others/dengac2/Data/David/SRR306791.fastq,/share/public2/data/others/dengac2/Data/David/SRR306793.fastq,/share/public2/data/others/dengac2/Data/David/SRR306794.fastq,/share/public2/data/others/dengac2/Data/David/SRR306795.fastq,/share/public2/data/others/dengac2/Data/David/SRR306796.fastq,/share/public2/data/others/dengac2/Data/David/SRR306797.fastq,/share/public2/data/others/dengac2/Data/David/SRR306798.fastq,/share/public2/data/others/dengac2/Data/David/SRR306799.fastq 
+
+
+#---------------------------
+#---------------------------
+#——---------------------------
+orangutan
+#---------------
+
+#!/bin/bash
+export PATH=$PATH:/share/public2/data/others/dengac2/App/bowtie2-2.3.0:/share/public2/data/others/dengac2/App/tophat-2.1.1.Linux_x86_64
+
+s='orangutan' #should be the same as the Genome folder name
+g='Pongo_abelii.PPYG2.87'
+l='orangutan/ftp.ensembl.org/pub/release-87/fasta/pongo_abelii/dna'
+n='Pongo_abelii.PPYG2.dna.chromosome.merge'
+
+mkdir -p /share/public2/data/others/dengac2/tophat_output/$s
+
+
+for var in a tophat --num-threads 8 -G /share/public2/data/others/dengac2/gtf/$g.gtf -o /share/public2/data/others/dengac2/tophat_output/$s /share/public2/data/others/dengac2/Genome/$l/$n /share/public2/data/others/dengac2/Data/David/SRR306791.fastq,/share/public2/data/others/dengac2/Data/David/SRR306793.fastq,/share/public2/data/others/dengac2/Data/David/SRR306794.fastq,/share/public2/data/others/dengac2/Data/David/SRR306795.fastq,/share/public2/data/others/dengac2/Data/David/SRR306796.fastq,/share/public2/data/others/dengac2/Data/David/SRR306797.fastq,/share/public2/data/others/dengac2/Data/David/SRR306798.fastq,/share/public2/data/others/dengac2/Data/David/SRR306799.fastq 

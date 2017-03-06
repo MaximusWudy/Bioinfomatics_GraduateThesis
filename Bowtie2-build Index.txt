@@ -1,0 +1,43 @@
+#use Tophat
+#put following programs in my PATH: bowtie2, bowtie2-build bowtie2-inspect
+
+export PATH=$PATH:/share/public2/data/others/dengac2/App/bowtie2-2.3.0:/share/public2/data/others/dengac2/App/tophat-2.1.1.Linux_x86_64
+
+#use bowtie2-build
+bowtie2-build hg38.fa human_gennome38
+#for group of files
+du -ah | cut -f2
+ gunzip ./ftp.ensembl.org/pub/release-87/fasta/monodelphis_domestica/dna/*dna.chromosome.*
+ 
+ ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/258/655/                                                                         GCF_000258655.2_panpan1.1/
+
+#build the index for each Species 
+#no working
+
+#batch do
+#a=$(du -ah | cut -f2 | tail -n 7 | head -n 1)
+#cd $a
+#for var in *.fa; do bowtie2-build "$var" "${var%.fa}";done
+
+#first merge then indice them
+a=$(ls Monodelphis_domestica.BROADO5.dna.chromosome.[1-9].fa)
+echo $a
+cat $a > Monodelphis_domestica.BROADO5.dna.merge.fa
+for var in *.merge.fa; do bowtie2-build "$var" "${var%.fa}";done
+
+#-----------------
+#[dengac@wz dna]$ echo $a
+Monodelphis_domestica.BROADO5.dna.chromosome.1.fa Monodelphis_domestica.BROADO5.dna.chromosome.2.fa Monodelphis_domestica.BROADO5.dna.chromosome.3.fa Monodelphis_domestica.BROADO5.dna.chromosome.4.fa Monodelphis_domestica.BROADO5.dna.chromosome.5.fa Monodelphis_domestica.BROADO5.dna.chromosome.6.fa Monodelphis_domestica.BROADO5.dna.chromosome.7.fa Monodelphis_domestica.BROADO5.dna.chromosome.8.fa 
+#---------------------
+
+a=$(ls -vC Gallus_gallus.Gallus_gallus-5.0.dna.chromosome.[0-9]*)
+echo $a
+cat $a > Gallus_gallus.dna.merge.fa
+for var in *.merge.fa; do bowtie2-build "$var" "${var%.fa}";done
+
+#a wiser way
+k='Mus_musculus.GRCm38.dna.chromosome'
+a=$(ls -vC $k.[0-9]*)
+echo $a
+cat $a > $k.merge.fa
+for var in *.merge.fa; do bowtie2-build "$var" "${var%.fa}";done

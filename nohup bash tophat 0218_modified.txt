@@ -1,0 +1,107 @@
+#---------------------------
+#---------------------------
+#——---------------------------
+orangutan
+#---------------
+
+#!/bin/bash
+export PATH=$PATH:/share/public2/data/others/dengac2/App/bowtie2-2.3.0:/share/public2/data/others/dengac2/App/tophat-2.1.1.Linux_x86_64
+
+s='orangutan' #should be the same as the Genome folder name
+g='Pongo_abelii.PPYG2.87'
+l='orangutan/ftp.ensembl.org/pub/release-87/fasta/pongo_abelii/dna'
+n='Pongo_abelii.PPYG2.dna.chromosome.merge'
+
+a=$(echo "SRR306791 SRR306793 SRR306794 SRR306795 SRR306796 SRR306797 SRR306798 SRR306799" | tr ' ' '\n')
+for var in $a
+do 
+mkdir -p /share/public2/data/others/dengac2/tophat_output/$s/$var 
+tophat --num-threads 8 -G /share/public2/data/others/dengac2/gtf/$g.gtf -o /share/public2/data/others/dengac2/tophat_output/$s/$var /share/public2/data/others/dengac2/Genome/$l/$n /share/public2/data/others/dengac2/Data/David/$var.fastq
+done 
+
+opossum
+#----------------
+
+#!/bin/bash
+export PATH=$PATH:/share/public2/data/others/dengac2/App/bowtie2-2.3.0:/share/public2/data/others/dengac2/App/tophat-2.1.1.Linux_x86_64
+
+s='opossum' #should be the same as the Genome folder name
+g='Monodelphis_domestica.BROADO5.87'
+l='opossum/ftp.ensembl.org/pub/release-87/fasta/monodelphis_domestica/dna'
+n='Monodelphis_domestica.BROADO5.dna.merge'
+a=$(echo "SRR306742 SRR306744 SRR306745 SRR306746 SRR306748 SRR306750 SRR306751 SRR306752 SRR306753 SRR306754 SRR306755 SRR306756")
+for var in $a
+do 
+mkdir -p /share/public2/data/others/dengac2/tophat_output/$s/$var 
+tophat --num-threads 8 -G /share/public2/data/others/dengac2/gtf/$g.gtf -o /share/public2/data/others/dengac2/tophat_output/$s/$var /share/public2/data/others/dengac2/Genome/$l/$n /share/public2/data/others/dengac2/Data/David/$var.fastq
+done 
+
+gorilla
+#-----------------
+#!/bin/bash
+export PATH=$PATH:/share/public2/data/others/dengac2/App/bowtie2-2.3.0:/share/public2/data/others/dengac2/App/tophat-2.1.1.Linux_x86_64
+
+s='gorilla' #should be the same as the Genome folder name
+g='Gorilla_gorilla.gorGor3.1.87'
+l='gorilla/ftp.ensembl.org/pub/release-87/fasta/gorilla_gorilla/dna'
+n='Gorilla_gorilla.gorGor3.1.dna.chromosome.merge'
+
+a=$(echo "SRR306800 SRR306802 SRR306803 SRR306804 SRR306805 SRR306806 SRR306807 SRR306808 SRR306809 SRR306810")
+
+for var in $a
+do 
+mkdir -p /share/public2/data/others/dengac2/tophat_output/$s/$var 
+tophat --num-threads 8 -G /share/public2/data/others/dengac2/gtf/$g.gtf -o /share/public2/data/others/dengac2/tophat_output/$s/$var /share/public2/data/others/dengac2/Genome/$l/$n /share/public2/data/others/dengac2/Data/David/$var.fastq
+done 
+
+rhesus
+#-----------------
+#!/bin/bash
+export PATH=$PATH:/share/public2/data/others/dengac2/App/bowtie2-2.3.0:/share/public2/data/others/dengac2/App/tophat-2.1.1.Linux_x86_64
+s='rhesus' #should be the same as the Genome folder name
+g='Macaca_mulatta.Mmul_8.0.1.87'
+l='rhesus/ftp.ensembl.org/pub/release-87/fasta/macaca_mulatta/dna'
+n='Macaca_mulatta.Mmul_8.0.1.dna.chromosome.merge'
+
+a=$(echo "SRR306777 SRR306778 SRR306780 SRR306781 SRR306782 SRR306783 SRR306784 SRR306785 SRR306786 SRR306787 SRR306789 SRR306790")
+
+for var in $a
+do 
+mkdir -p /share/public2/data/others/dengac2/tophat_output/$s/$var 
+tophat --num-threads 8 -G /share/public2/data/others/dengac2/gtf/$g.gtf -o /share/public2/data/others/dengac2/tophat_output/$s/$var /share/public2/data/others/dengac2/Genome/$l/$n /share/public2/data/others/dengac2/Data/David/$var.fastq
+done 
+
+
+human
+#------------------
+#!/bin/bash
+export PATH=$PATH:/share/public2/data/others/dengac2/App/bowtie2-2.3.0:/share/public2/data/others/dengac2/App/tophat-2.1.1.Linux_x86_64
+s='human' #should be the same as the Genome folder name
+g='Homo_sapiens.GRCh38.87' #the gtf file name
+l='human' #file location
+n='Homo_sapiens.GRCh38.87' #file name
+
+a=$(echo "SRR306838 SRR306839 SRR306841 SRR306843 SRR306844 SRR306846 SRR306847 SRR306849 SRR306850 SRR306851 SRR306852 SRR306853 SRR306854 SRR306855 SRR306856 SRR306857 SRR306858")
+
+for var in $a
+do 
+mkdir -p /share/public2/data/others/dengac2/tophat_output/$s/$var 
+tophat --num-threads 8 -G /share/public2/data/others/dengac2/gtf/$g.gtf -o /share/public2/data/others/dengac2/tophat_output/$s/$var /share/public2/data/others/dengac2/Genome/$l/$n /share/public2/data/others/dengac2/Data/David/$var.fastq
+done 
+
+chimp
+#-------------------
+#!/bin/bash
+export PATH=$PATH:/share/public2/data/others/dengac2/App/bowtie2-2.3.0:/share/public2/data/others/dengac2/App/tophat-2.1.1.Linux_x86_64
+s='chimp' #should be the same as the Genome folder name
+g='Pan_troglodytes.CHIMP2.1.4.87' #the gtf file name
+l='chimp/ftp.ensembl.org/pub/release-87/fasta/pan_troglodytes/dna' #file location
+n='Pan_troglodytes.CHIMP2.1.4.dna.chromosome.merge' #file name
+
+a=$(echo "SRR306811 SRR306817 SRR306818 SRR306819 SRR306820 SRR306821 SRR306822 SRR306823 SRR306824 SRR306825")
+
+for var in $a
+do 
+mkdir -p /share/public2/data/others/dengac2/tophat_output/$s/$var 
+tophat --num-threads 8 -G /share/public2/data/others/dengac2/gtf/$g.gtf -o /share/public2/data/others/dengac2/tophat_output/$s/$var /share/public2/data/others/dengac2/Genome/$l/$n /share/public2/data/others/dengac2/Data/David/$var.fastq
+done 
